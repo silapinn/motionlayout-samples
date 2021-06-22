@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        android:id="@+id/toEnd"
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="1000">
+
+        <OnSwipe
+            app:dragDirection="dragEnd"
+            app:touchAnchorId="@id/image"
+            app:touchAnchorSide="end" />
+
+    </Transition>
+
+    <Transition
+        android:id="@+id/toBottom"
+        app:constraintSetEnd="@id/bottom"
+        app:constraintSetStart="@id/end"
+        app:duration="1000">
+
+        <OnSwipe
+            app:dragDirection="dragDown"
+            app:touchAnchorId="@id/image"
+            app:touchAnchorSide="bottom" />
+
+    </Transition>
+
+    <Transition
+        android:id="@+id/reset"
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@id/start"
+        app:constraintSetStart="@id/bottom"
+        app:duration="1000" />
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/bottom">
+
+        <Constraint
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </ConstraintSet>
+
+</MotionScene>
